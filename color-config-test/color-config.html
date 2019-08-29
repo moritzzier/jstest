@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color-Config</title>
+</head>
+
+<body>
+    <input type="file" id="upload">
+    Colorconfig Hochladen
+    </input>
+</body>
+
+<script>
+    var element = document.getElementById("upload")
+    element.addEventListener("change", function (event) {
+        console.log("eventListener Fired")
+        var reader = new FileReader();
+        reader.onload = onReaderLoad;
+        reader.readAsText(event.target.files[0])
+    })
+
+    function onReaderLoad(event) {
+        console.log(event.target.result);
+        var obj = JSON.parse(event.target.result);
+        console.log(obj);
+    }
+</script>
+
+</html>
